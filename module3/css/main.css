@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin:auto;
+}
+.navbar-brand h1 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  position: absolute;
+  left: 0px;
+  top: -10px;
+  color: black;
+}
+.container .navbar-brand{
+  position: relative;
+  width: 150px;
+}
+p {
+  clear: both;
+  margin: 10px;
+  font-family: Helvetica;
+}
+body{
+  padding-top: 70px;
+}
+/* Simple Responsive Framework. */
+.box{
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+/********** Phone ************/
+@media (max-width: 767px) {
+
+}
+/********** Tablet ***********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+/********** Desktop **********/
+@media (min-width: 992px) {
+  
+}
