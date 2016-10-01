@@ -9,12 +9,15 @@
         this.getMatchedMenuItems = function (value) {
             return $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function (result) {
                 // process result and only keep items that match
+                value = value.trim();
                 var foundItems = [];
-                var items = result.data.menu_items;
-                for (var i = 0; i < items.length; i++) {
-                    if (items[i].description.includes(value))
-                        foundItems.push(items[i]);
-                    // return processed items
+                console.log(value);
+                if (value.length) {
+                    var items = result.data.menu_items;
+                    for (var i = 0; i < items.length; i++) {
+                        if (items[i].description.includes(value))
+                            foundItems.push(items[i]);
+                    }
                 }
                 return foundItems;
             });
@@ -25,10 +28,12 @@
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
         ctrl.searchValue = "";
+        ctrl.clicked = false;
         ctrl.found = [];
         ctrl.display = function () {
             MenuSearchService.getMatchedMenuItems(ctrl.searchValue).then(function (data) {
                 ctrl.found = data;
+                ctrl.clicked = true;
             });
         };
         ctrl.remove = function (index) {
